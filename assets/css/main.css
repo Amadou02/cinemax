@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;800&display=swap');
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* définition de la font root */
+html {
+    font-size: 16px;
+}
+
+html,
+body {
+    min-height: 100vh;
+}
+
+body {
+    width: 100%;
+    display: grid;
+    grid-template-rows: minmax(5rem, auto) 1fr minmax(5rem, auto);
+}
+
+#site-header>*,
+#site-footer>* {
+    color: rgba(255, 255, 255, .70);
+}
+
+#site-header,
+#site-footer {
+    background-color: rgba(0, 0, 0, 70);
+}
+
+#site-header form input {
+    background-color: rgb(225, 229, 233);
+}
+
+main .container .row .movie-title {
+    font-family: 'Dosis', sans-serif;
+    font-size: .90rem;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.home .poster {
+    position: relative;
+}
+
+.home .poster::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(#ffffffdc, #ffffff9f);
+    display: none;
+}
+
+.home .poster:hover::after {
+    display: block;
+    animation: fadeIn ease 1s;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+.mv-details{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+    display: none;
+}
+
+.poster:hover .mv-details {
+    display: block;
+}
+
+span.icon {
+    display: block;
+    width: 2rem;
+    height: 2rem;
+    border: 1px solid;
+    border-radius: 50%;
+    position: relative;
+}
+
+span.icon .fas {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.single h1, 
+.single h2,
+.single p {
+    font-family: 'Dosis', sans-serif;
+}
+
+.similar div a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    text-decoration: none;
+}
+
+.similar div a::after {
+    content: attr(data-text);
+    display: inline-block;
+    border: 1px solid rgba(255, 255, 255, 0.486);
+    padding: 3px 8px;
+    border-radius: 20px;
+    background-color: #dc3546bc;
+    color: rgba(255, 255, 255);
+    font-weight: bold;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
+.similar div a:hover::after {
+    display: block;
+}
