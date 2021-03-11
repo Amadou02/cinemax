@@ -153,6 +153,7 @@ span.icon .fas {
     left: 50%;
     transform: translate(-50%, -50%);
     display: none;
+    z-index: 999;
 }
 
 .slick-track .slick-slide:hover p:nth-child(2) {
@@ -167,6 +168,7 @@ span.icon .fas {
     padding: 8px;
     color: white;
     border-radius: 8px;
+    z-index: 1;
 }
 
 
@@ -182,9 +184,11 @@ span.icon .fas {
     bottom: 0;
     background: radial-gradient(#797474dc, #5f5a5a9f);
     display: none;
+    z-index: 1;
 }
 
 .slick-track .slick-slide:hover::after {
     display: block;
     animation: fadeIn ease 1s;
+    z-index: 1;
 }
