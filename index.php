@@ -7,6 +7,8 @@ $results = get_movies();
 
 $movies = $results['results'];
 
+$title = 'Accueil';
+
 require_once 'inc/header.php';
 ?>
 <header class="mb-4" id="site-header">

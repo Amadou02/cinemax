@@ -1,7 +1,11 @@
 <?php
 
 require __DIR__ . '/vendor/autoload.php';
-
+/**
+ * Permet d'effectuer des appels à l'API
+ * @param string @uri | uri de la route, exemple `movie/popular`.
+ * @param string @options | contient les paramètres d'url et autres paramètrage de la requête. 
+ */
 function make_request($uri, $options)
 {
     try {
@@ -18,8 +22,14 @@ function make_request($uri, $options)
     }
 }
 
+/**
+ * Permet de récupérer une liste de films
+ * 
+ * @return array
+ */
 function get_movies()
 {
+    // En paramètre d'url, on passe la clé de l'API et la langue dans laquelle on souhaite récupérer les données.
     $options = [
         'query' => [
             'api_key' => API_KEY,
@@ -28,17 +38,21 @@ function get_movies()
 
     ];
     $response = make_request('movie/popular', $options);
-
+    // on extrait les données contenus dans le corps de la réponse `JSON`.
     $contents = $response->getBody()->getContents();
+    // On decode le json en tableau associatif PHP grâce au booléen `true`
     return json_decode($contents, true);
 }
-
+/**
+ * Permet de récupérer les données d'un film
+ * @param mixed $id | l'identifiant du film dans la base de données TMDB
+ */
 function get_movie_details($id)
 {
     $options = [
         'query' => [
             'api_key' => API_KEY,
-            'append_to_response' => 'similar',
+            'append_to_response' => 'similar', // permet de faire deux appels en un `movie/{movie_id}` et `/movie/{movie_id}/videos`
             'language' => LANG
         ]
     ];
@@ -48,7 +62,10 @@ function get_movie_details($id)
     $contents = $response->getBody()->getContents();
     return json_decode($contents, true);
 }
-
+/**
+ * On récupère la video à part car les données en fr ne propose pas de video de bande annonce
+ * 
+ */
 function get_movie_trailer($id)
 {
     $options = [

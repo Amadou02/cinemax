@@ -59,7 +59,7 @@ main .container .row .movie-title {
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(#ffffffdc, #ffffff9f);
+    background: radial-gradient(#797474dc, #5f5a5a9f);
     display: none;
 }
 
@@ -122,23 +122,69 @@ span.icon .fas {
     text-decoration: none;
 }
 
-.similar div a::after {
-    content: attr(data-text);
-    display: inline-block;
-    border: 1px solid rgba(255, 255, 255, 0.486);
-    padding: 3px 8px;
-    border-radius: 20px;
-    background-color: #dc3546bc;
-    color: rgba(255, 255, 255);
-    font-weight: bold;
-    text-align: center;
+.slick-next.slick-arrow, .slick-prev.slick-arrow  {
+    color: black;
+}
+
+.slick-track{
+    display: flex;    
+}
+.slick-track .slick-slide{
+    display: flex;
+    height: auto;
+}
+
+.slick-track .slick-slide .btn {
+    background-color:#BB2D3B;
+    color: white;
+}
+
+.slick-track .slick-slide {
+    position: relative;
+}
+
+.slick-track .slick-slide p {
     position: absolute;
-    left: 50%;
+    font-family: 'Dosis', sans-serif;
+}
+
+.slick-track .slick-slide p:nth-child(2){
     top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
     display: none;
 }
 
-.similar div a:hover::after {
+.slick-track .slick-slide:hover p:nth-child(2) {
     display: block;
+}
+
+
+.slick-track .slick-slide p:nth-child(3){
+    bottom:0;
+    right: 5%;
+    background-color: rgba(0, 0, 0, 0.691);
+    padding: 8px;
+    color: white;
+    border-radius: 8px;
+}
+
+
+.slick-track .slick-slide::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(#797474dc, #5f5a5a9f);
+    display: none;
+}
+
+.slick-track .slick-slide:hover::after {
+    display: block;
+    animation: fadeIn ease 1s;
 }
