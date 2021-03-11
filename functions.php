@@ -52,7 +52,7 @@ function get_movie_details($id)
     $options = [
         'query' => [
             'api_key' => API_KEY,
-            'append_to_response' => 'similar', // permet de faire deux appels en un `movie/{movie_id}` et `/movie/{movie_id}/videos`
+            'append_to_response' => 'similar', // permet de faire deux appels en un `movie/{movie_id}` et `/movie/{movie_id}/similar`
             'language' => LANG
         ]
     ];
